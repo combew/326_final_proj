@@ -9,8 +9,23 @@ Challenges Encountered: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 import sys
 import argparse
+import csv
 
-def main(parameter1, parameter2):
+'''
+Judah
+extract song name, and genre
+'''
+#def create_song_dictionary(file_path):
+
+csv_rows = []
+file_path = "songs_normalize.csv"
+with open(file_path, 'r') as fc:
+    csv_text = fc.read()
+    # csv_obj is an object as a result of the csv.reader(fc) function
+    print(csv_text)
+
+'''
+    def main(parameter1, parameter2):
     #Note that this function does not do anything.
     #You would insert functional code here.
     #Instead we will use the pass keyword to avoid doing that.
@@ -58,5 +73,4 @@ if __name__ == "__main__":
     #You do want to make sure to have minimal code under the 'if __name__ == "__main__":' statement.
     
     main(arguments.required, arguments.optional)
-
-
+    '''

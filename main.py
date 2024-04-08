@@ -24,10 +24,26 @@ df = pd.read_csv("songs_normalize.csv")
 print(df.head())
 
 
-'''
-Nathan
-Allow user to input genre likes
-'''
+"""input based on genre  -  Nathan """
+def load_dataset(file_path):
+    dataset = pd.read_csv(file_path)
+    return dataset
+
+def filter_genre(dataset, genre):
+    filtered_dataset = dataset[dataset['genre'] == genre]
+    return filtered_dataset
+
+def main():
+    dataset = 'data/songs_dataset.csv'
+    songs = load_dataset(dataset)
+    
+    user_genre = input("Enter your preferred genre: ")
+    filtered_songs = filter_genre(songs, user_genre)
+    
+    print(filtered_songs)
+
+if __name__ == "__main__":
+    main()
 
 '''
 (Omar Humeida) match user genre tastes with existing songs and their genre

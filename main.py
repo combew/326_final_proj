@@ -10,19 +10,24 @@ Challenges Encountered: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 import sys
 import argparse
 import csv
-
+import pandas as pd
 '''
 Judah
 extract song name, and genre
 '''
 #def create_song_dictionary(file_path):
 
-csv_rows = []
+ 
+df = pd.read_csv("songs_normalize.csv")
+
+print(df.head())
+
+"""csv_rows = []
 file_path = "songs_normalize.csv"
 with open(file_path, 'r') as fc:
     csv_text = fc.read()
     # csv_obj is an object as a result of the csv.reader(fc) function
-    print(csv_text)
+    print(csv_text)"""
 
 '''
 Nathan

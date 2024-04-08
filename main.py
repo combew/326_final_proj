@@ -52,7 +52,20 @@ output a list of songs that fit their genres
 
 '''
 (Jason) user can then ask the program to list songs based on an inputted genre
-allow user to filter songs by inputted year, output will change accordingly 
+allow user to filter songs by inputted year, output will change accordingly
+'''
+if user_genre == "hip hop":
+ queue.song(hip_hop) # Adds a rap song to the queue
+elif user_genre == "pop":
+ queue.song(pop) # Adds a pop song to the queue
+elif user_genre == "country":
+ queue.song(country) # Adds a country song to the queue
+elif user_genre == "rock":
+ queue.song(rock) # Adds a rock song to the queue
+elif user_genre == "blues":
+ queue.song(blues) # Adds a blues song to the queue
+ 
+'''
 (Jason) user can also choose to change the genre/year again
 '''
 

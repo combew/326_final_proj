@@ -26,14 +26,28 @@ print(df.head())
 
 """input based on genre  -  Nathan """
 def load_dataset(file_path):
+    """Load dataset from a CSV file
+    Args:
+        file_path (str): The path to the CSV file
+    Returns:
+        The loaded dataset
+    """
     dataset = pd.read_csv(file_path)
     return dataset
 
 def filter_genre(dataset, genre):
+    """Filter dataset based on genre
+    Args:
+        dataset: The dataset containing song information
+        genre: The genre to filter the dataset by
+    Returns:
+        The filtered dataset containing songs of the specified genre by user
+    """
     filtered_dataset = dataset[dataset['genre'] == genre]
     return filtered_dataset
 
 def main():
+    """Main function to run the program."""
     dataset = 'data/songs_dataset.csv'
     songs = load_dataset(dataset)
     
@@ -44,6 +58,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 '''
 (Omar Humeida) match user genre tastes with existing songs and their genre

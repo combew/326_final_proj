@@ -26,7 +26,7 @@ print(df.head())
 
 """input based on genre  -  Nathan """
 def load_dataset(file_path):
-    """Load dataset from a CSV file
+    """Load dataset from CSV file
     Args:
         file_path (str): The path to the CSV file
     Returns:

@@ -29,13 +29,27 @@ with open(songs_csv, encoding='utf-8-sig') as csvfile:
         for single_genre in record_genre.split(', '):
             genre_set.add(single_genre)
 
-# this loop will add the song name to genre_song_dict if its record's genre key has one in the set
-    for record in reader:
+    '''
+    The loop below will go through one genre from the set first, in that genre, it will go through a single
+    row in the csv, it will then go through the genre names, if the row's genre matches the current genre
+    we are looping through, it will add that row's song name to a list, this list exists once per genre,
+    this list is added to the dict, after all the rows are checked for one genre
+    '''
+    for genre in genre_set:
+        songs_in_genre = []
+        for record in reader:
+        # why does print(record) not work?
+            print(record)
+            for single_genre in record['genre'].split(', '):
+                if single_genre == genre:
+                    songs_in_genre.append(record['song'])
+        genre_song_dict[genre] = songs_in_genre
+
+"""for record in reader:
 
         for single_genre in record_genre.split(', '):
             if single_genre in genre_set:
-                print(f"{record['song']} is a {single_genre} song")
+                print(f"{record['song']} is a {single_genre} song")"""
 
-
-
+print(genre_song_dict)
 print(f"Done")

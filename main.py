@@ -19,11 +19,10 @@ Create a dictionary with genre as a key, songs as the values
 '''
 #def create_song_dictionary(file_path):
 
- 
-df = pd.read_csv("songs_normalize.csv")
+songs_csv = r'C:\Users\judah\OneDrive\Documents\GitHub\326_final_proj\songs_normalize.csv'
 
-print(df.head())
-
+with open(songs_csv, encoding='utf-8-sig') as csvfile:
+    reader = csv.DictReader(csvfile)
 
 """input based on genre  -  Nathan """
 def load_dataset(file_path):

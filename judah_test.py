@@ -42,14 +42,18 @@ with open(songs_csv, encoding='utf-8-sig') as csvfile:
             print(record)
             for single_genre in record['genre'].split(', '):
                 if single_genre == genre:
-                    songs_in_genre.append(record['song'])
+                    songs_in_genre[single_genre].append(record['song'])
         genre_song_dict[genre] = songs_in_genre
 
-"""for record in reader:
+"""
+The desired dictionary should look something like
+{
+'pop': [song1, song2, song3],
+'rock': [song4, song1, song5],
+'Dance/Electronic': [song6, song7, song8, song2]
+}
+"""
 
-        for single_genre in record_genre.split(', '):
-            if single_genre in genre_set:
-                print(f"{record['song']} is a {single_genre} song")"""
-
-print(genre_song_dict)
+print(f"\nThis is the genre set:\n{genre_set}\n")
+print(f"This is the final dictionary:\n{genre_song_dict}\n")
 print(f"Done")

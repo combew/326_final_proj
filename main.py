@@ -17,12 +17,21 @@ Judah
 extract song name, and genre
 Create a dictionary with genre as a key, songs as the values
 '''
-#def create_song_dictionary(file_path):
 
-songs_csv = r'C:\Users\judah\OneDrive\Documents\GitHub\326_final_proj\songs_normalize.csv'
+songs_csv = r'songs_normalize.csv'
 
 with open(songs_csv, encoding='utf-8-sig') as csvfile:
     reader = csv.DictReader(csvfile)
+'''
+The desired dictionary should look something like
+
+genre_dictionary
+{
+'pop': [song1, song2, song3],
+'rock': [song4, song1, song5],
+'Dance/Electronic': [song6, song7, song8, song2]
+}
+'''
 
 """input based on genre  -  Nathan """
 def load_dataset(file_path):

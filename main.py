@@ -103,7 +103,7 @@ if __name__ == "__main__":
 allow user to filter songs by inputted year, output will change accordingly
 '''
 if user_genre == "hip hop":
- queue.song(hip_hop) # Adds a rap song to the queue
+ queue.song(hip hop) # Adds a rap song to the queue
 elif user_genre == "pop":
  queue.song(pop) # Adds a pop song to the queue
 elif user_genre == "country":

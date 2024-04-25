@@ -4,7 +4,6 @@ Drivers: Jason De Azevedo, Nathan Bogin, Judah Kamadinata, Omar
 Assignment: Final Project
 Date: 4_1_24
 
-Challenges Encountered: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
 import sys
@@ -13,6 +12,16 @@ import csv
 import pandas as pd 
 
 def dataset_filtered():
+    '''
+    This function opens the csv of songs and creates a dictionary for later use
+
+    Args:
+    - none
+
+    Returns:
+    - genre_song_dict (dictionary): A dictionary with a genre as a key, and a list of all the songs in that
+        genre as the value
+    '''
     songs_csv = r'songs_normalize.csv'
 
     with open(songs_csv, encoding='utf-8-sig') as csvfile:

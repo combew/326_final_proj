@@ -123,16 +123,29 @@ if __name__ == "__main__":
 (Jason) user can then ask the program to list songs based on an inputted genre
 allow user to filter songs by inputted year, output will change accordingly
 '''
-if user_genre == "hip hop":
- queue.song(hip hop) # Adds a rap song to the queue
-elif user_genre == "pop":
- queue.song(pop) # Adds a pop song to the queue
-elif user_genre == "country":
- queue.song(country) # Adds a country song to the queue
-elif user_genre == "rock":
- queue.song(rock) # Adds a rock song to the queue
-elif user_genre == "blues":
- queue.song(blues) # Adds a blues song to the queue
+
+def add_to_dictionary():
+
+    q1 = str(input("Would you like to filteer by year? yes/no")
+    if q1 == "No" or "no":
+                 exit()
+    else:
+        q2 = str(input("Does this song's genre exist in our table?")
+                 
+     if q2 == "No" or "no":
+       user_genre = str(input("What genre would you like to add?")
+        q4 = str(input("What song would you like to add? (Please note this song has to be within your selected genre.)")
+                                                 
+     if user_genre == "hip hop":
+        queue.song(hip hop) # Adds a rap song to the queue
+    elif user_genre == "pop":
+        queue.song(pop) # Adds a pop song to the queue
+     elif user_genre == "country":
+        queue.song(country) # Adds a country song to the queue
+     elif user_genre == "rock":
+        queue.song(rock) # Adds a rock song to the queue
+     elif user_genre == "blues":
+        queue.song(blues) # Adds a blues song to the queue
  
 '''
 (Jason) user can also choose to change the genre/year again

@@ -12,26 +12,38 @@ import argparse
 import csv
 import pandas as pd 
 
-'''
-Judah
-extract song name, and genre
-Create a dictionary with genre as a key, songs as the values
-'''
+def dataset_filtered():
+    songs_csv = r'songs_normalize.csv'
 
-songs_csv = r'songs_normalize.csv'
+    with open(songs_csv, encoding='utf-8-sig') as csvfile:
+        reader = csv.DictReader(csvfile)
+        all_songs_list = list(reader)
 
-with open(songs_csv, encoding='utf-8-sig') as csvfile:
-    reader = csv.DictReader(csvfile)
-'''
-The desired dictionary should look something like
+        genre_song_dict = {}
+        genre_set = set()
 
-genre_dictionary
-{
-'pop': [song1, song2, song3],
-'rock': [song4, song1, song5],
-'Dance/Electronic': [song6, song7, song8, song2]
-}
-'''
+        for one_row in all_songs_list:
+
+            song_genre = one_row['genre']
+        
+            for single_genre in song_genre.split(', '):
+                genre_set.add(single_genre)
+
+
+        for genre in genre_set:
+            songs_in_genre = []
+
+            for one_row in all_songs_list:
+
+                for single_genre in one_row['genre'].split(', '):
+
+                    if single_genre == genre:
+                        songs_in_genre.append(one_row['song'])
+                        
+            genre_song_dict[genre] = songs_in_genre
+
+    return genre_song_dict
+
 
 """input based on genre  -  Nathan """
 def load_dataset(file_path):

@@ -44,6 +44,7 @@ def dataset_filtered():
 
     return genre_song_dict
 
+# this is the new structure of our code, you don't need to keep the function names cuz ik they're very long LMAO
 '''
 def print_songs_from_user_inputted_genre(genre, dictionary/table):
 
@@ -70,7 +71,7 @@ def add_to_dictionary(no parameters):
 
 def main():
 
-    d = dataset_filtered('songs_normalize.csv')
+    d = dataset_filtered()
 
     while True: < basically this while loop will run forever until the user inputs 'quit'
 

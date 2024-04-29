@@ -29,7 +29,7 @@ def add_to_dictionary(no parameters):
     to type which genre they would like to add to (case sensitive), and the song they would like to add to
     that genre.
 
-def main():
+def main() Judah will work on this after you guys have finished ur functions:
 
     d = dataset_filtered('songs_normalize.csv')
 

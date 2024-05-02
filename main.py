@@ -218,9 +218,7 @@ def add_to_dictionary():
      elif user_genre == "blues":
         queue.song(blues) # Adds a blues song to the queue
  
-'''
-(Jason) user can also choose to change the genre/year again
-'''
+
 
 '''
 (judah) user can add song/genre

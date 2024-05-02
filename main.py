@@ -195,8 +195,9 @@ if __name__ == "__main__":
 allow user to filter songs by inputted year, output will change accordingly
 '''
 
-def add_to_dictionary():
+def add_to_dictionary(user_genre):
 
+    '''
     q1 = str(input("Would you like to filteer by year? yes/no")
     if q1 == "No" or "no":
                  exit()
@@ -206,7 +207,7 @@ def add_to_dictionary():
      if q2 == "No" or "no":
        user_genre = str(input("What genre would you like to add?")
         q4 = str(input("What song would you like to add? (Please note this song has to be within your selected genre.)")
-                                                 
+     '''                                            
      if user_genre == "hip hop":
         queue.song(hip hop) # Adds a rap song to the queue
     elif user_genre == "pop":

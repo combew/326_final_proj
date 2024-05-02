@@ -195,29 +195,44 @@ if __name__ == "__main__":
 allow user to filter songs by inputted year, output will change accordingly
 '''
 
-def add_to_dictionary(user_genre):
+def add_to_dictionary(songs_normalize):
 
-    '''
-    q1 = str(input("Would you like to filteer by year? yes/no")
-    if q1 == "No" or "no":
-                 exit()
+    
+    song_add = input("Would you like to add a song? yes/no").lower()
+    if song_add == "no":
+        print("The function will now exit.")
+                 return 0
+        
+    elif song_add == "yes":
+        song_name = str(input("Enter the name of the song: ")
+        genre = input("Enter the genre of the song: ")
+        
+        if genre not in songs_normalize:
+            print(f"'{genre}' does not exist in the dictionary.")
+            new_genre = input("Enter the genre you would like to add (case sensitive): ")
+            songs_normalize[new_genre] = [song_name]
+            print(f"'{song_name}' added to '{new_genre}'.")
+            
+        else:
+            print(f"The genre '{genre}' exists.")
+            add_to_existing_genre = input(f"Do you want to add '{song_name}' to '{genre}'? (yes/no): ").lower()
+            if add_to_existing_genre == 'yes':
+                song_normalize[genre].append(song_name)
+                print(f"Song '{song_name}' added to genre '{genre}'.")
+            else:
+                print("Okay, not adding the song.")
+    
     else:
-        q2 = str(input("Does this song's genre exist in our table?")
+        print("Invalid input. Please enter 'yes' or 'no'.")
+        add_to_dictionary(songs_normalize)
+
+
+
+add_to_dictionary(songs_normalize)
+print(songs_normalize)  # Prints the updated song dictionary
                  
-     if q2 == "No" or "no":
-       user_genre = str(input("What genre would you like to add?")
-        q4 = str(input("What song would you like to add? (Please note this song has to be within your selected genre.)")
-     '''                                            
-     if user_genre == "hip hop":
-        queue.song(hip hop) # Adds a rap song to the queue
-    elif user_genre == "pop":
-        queue.song(pop) # Adds a pop song to the queue
-     elif user_genre == "country":
-        queue.song(country) # Adds a country song to the queue
-     elif user_genre == "rock":
-        queue.song(rock) # Adds a rock song to the queue
-     elif user_genre == "blues":
-        queue.song(blues) # Adds a blues song to the queue
+                                                      
+     
  
 
 

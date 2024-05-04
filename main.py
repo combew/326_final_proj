@@ -140,6 +140,8 @@ def main(): #Judah's function
         user_input = input('\nWould you like to search for songs based off genre, based off a song, add to our list of songs, or quit the program? (genre/song/add/quit)\n')
 
         if user_input == 'genre':
+            songs_csv = r'songs_normalize.csv'
+            genre_song_dict, genre_set = load_songs(songs_csv)
             genre_input = prompt_user_for_genre(genre_set)
             print_songs_for_genre(genre_song_dict, genre_input)
         

@@ -191,10 +191,10 @@ def add_to_dictionary(songs_normalize):
     song_add = input("Would you like to add a song? yes/no").lower()
     if song_add == "no":
         print("The function will now exit.")
-                 return 0
+                return 0
         
     elif song_add == "yes":
-        song_name = str(input("Enter the name of the song: ")
+        song_name = str(input("Enter the name of the song: "))
         genre = input("Enter the genre of the song: ")
         
         if genre not in songs_normalize:

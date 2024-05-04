@@ -110,48 +110,6 @@ if __name__ == "__main__":
     main()
 '''
 
-# This marks the beginning of the pseudo code section that you guys have made, the structure for our code 
-# should be above this line, try to follow that structure
-
-
-
-
-"""input based on genre  -  Nathan """
-def load_dataset(file_path):
-    """Load dataset from CSV file
-    Args:
-        file_path (str): The path to the CSV file
-    Returns:
-        The loaded dataset
-    """
-    dataset = pd.read_csv(file_path)
-    return dataset
-
-def filter_genre(dataset, genre):
-    """Filter dataset based on genre
-    Args:
-        dataset: The dataset containing song information
-        genre: The genre to filter the dataset by
-    Returns:
-        The filtered dataset containing songs of the specified genre by user
-    """
-    filtered_dataset = dataset[dataset['genre'] == genre]
-    return filtered_dataset
-
-def main():
-    """Main function to run the program."""
-    dataset = 'data/songs_dataset.csv'
-    songs = load_dataset(dataset)
-    
-    user_genre = input("Enter your preferred genre: ")
-    filtered_songs = filter_genre(songs, user_genre)
-    
-    print(filtered_songs)
-
-if __name__ == "__main__":
-    main()
-
-
 '''
 (Omar Humeida) match user genre tastes with existing songs and their genre
 output a list of songs that fit their genres 
@@ -217,16 +175,33 @@ def add_to_dictionary(songs_normalize):
         add_to_dictionary(songs_normalize)
 
 
+def main(): #Judah's function
 
-add_to_dictionary(songs_normalize)
-print(songs_normalize)  # Prints the updated song dictionary
-                 
-                                                      
-     
- 
+    d = dataset_filtered()
 
+    while True:
 
-'''
-(judah) user can add song/genre
-'''
+        print(d)
 
+        user_input = input('Would you like to search for songs based off genre, based off a song, add to our list of songs, or quit the program? (genre/song/add/quit)\n')
+
+        if user_input == 'genre':
+            user_genre = 'what genre would you like to search for?'
+            print_songs_from_user_inputted_genre(user_genre, d)
+        
+        elif user_input == 'song':
+            user_song = 'what song would you like to find similar songs for?'
+            print_songs_from_user_inputted_song(user_song, d)
+
+        elif user_input == 'add':
+            add_to_dictionary()
+
+        elif user_input == 'quit':
+            print("Thank you for using our program :D")
+            quit()
+
+        else:
+            'please input a valid option'
+
+if __name__ == "__main__":
+    main()

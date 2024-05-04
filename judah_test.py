@@ -30,7 +30,3 @@ with open(songs_csv, encoding='utf-8-sig') as csvfile:
 
 genre_input = input(f"Print songs based off one genre from: {genre_set}\n")
 print(f"Here are {genre_input} songs!\n{genre_song_dict[genre_input]}")
-
-song_input = input(f"We can find songs based off another song too! Just enter the name here:\n")
-thing = [genre for genre, song in genre_song_dict.items() if song_input == song]
-print(thing)

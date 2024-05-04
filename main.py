@@ -141,7 +141,7 @@ def main(): #Judah's function
 
         if user_input == 'genre':
             genre_input = prompt_user_for_genre(genre_set)
-            # print_songs_from_user_inputted_genre(user_genre, d)
+            print_songs_for_genre(genre_song_dict, genre_input)
         
         elif user_input == 'song':
             user_song = 'what song would you like to find similar songs for?'

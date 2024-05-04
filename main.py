@@ -149,7 +149,7 @@ def add_to_dictionary(songs_normalize):
     song_add = input("Would you like to add a song? yes/no").lower()
     if song_add == "no":
         print("The function will now exit.")
-                return 0
+        return 0
         
     elif song_add == "yes":
         song_name = str(input("Enter the name of the song: "))
@@ -183,11 +183,11 @@ def main(): #Judah's function
 
         print(d)
 
-        user_input = input('Would you like to search for songs based off genre, based off a song, add to our list of songs, or quit the program? (genre/song/add/quit)\n')
+        user_input = input('\nWould you like to search for songs based off genre, based off a song, add to our list of songs, or quit the program? (genre/song/add/quit)\n')
 
         if user_input == 'genre':
             user_genre = 'what genre would you like to search for?'
-            print_songs_from_user_inputted_genre(user_genre, d)
+            # print_songs_from_user_inputted_genre(user_genre, d)
         
         elif user_input == 'song':
             user_song = 'what song would you like to find similar songs for?'

@@ -140,13 +140,13 @@ def main(): #Judah's function
         user_input = input('\nWould you like to search for songs based off genre, based off a song, add to our list of songs, or quit the program? (genre/song/add/quit)\n')
 
         if user_input == 'genre':
-            user_genre = 'what genre would you like to search for?'
+            genre_input = prompt_user_for_genre(genre_set)
             # print_songs_from_user_inputted_genre(user_genre, d)
         
         elif user_input == 'song':
             user_song = 'what song would you like to find similar songs for?'
-            print_songs_from_user_inputted_song(user_song, d)
-
+            print_songs_for_genre(genre_song_dict, genre_input)
+            
         elif user_input == 'add':
             add_to_dictionary()
 

@@ -126,7 +126,7 @@ def add_to_dictionary(songs_normalize):
     
     else:
         print("Invalid input. Please enter 'yes' or 'no'.")
-        add_to_dictionary(songs_normalize)
+        
 
 
 def main(): #Judah's function

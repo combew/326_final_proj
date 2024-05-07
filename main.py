@@ -51,17 +51,17 @@ def dataset_filtered():
 
             genre_song_dict[genre] = songs_in_genre
 
-    return genre_song_dict
+    return genre_song_dict, genre_set
 
 
 """Nathan"""
-def prompt_user_for_genre(genre_set):
-    print(f"Available genres: {', '.join(sorted(genre_set))}")
+def prompt_user_for_genre(genre_song_dict):
+    print(f"Available genres: {', '.join(sorted(genre_song_dict.keys()))}")
     genre_input = input("Enter a genre to print songs from: ")
     return genre_input
 
 def print_songs_for_genre(genre_song_dict, genre_input):
-    if genre_input in genre_song_dict:
+    if genre_input in genre_song_dict.keys():
         print(f"Here are {genre_input} songs!\n{genre_song_dict[genre_input]}")
     else:
         print("Genre not found. Please try again with a valid genre from the list.")
@@ -97,29 +97,28 @@ def print_songs_from_user_inputted_song(song_name, genre_song_dict):
 allow user to filter songs by inputted year, output will change accordingly
 '''
 
-def add_to_dictionary(songs_normalize):
-
+def add_to_dictionary(genre_song_dict):
     
-    song_add = input("Would you like to add a song? yes/no").lower()
+    song_add = input("Would you like to add a song? yes/no\n").lower()
     if song_add == "no":
         print("The function will now exit.")
         return 0
         
     elif song_add == "yes":
-        song_name = str(input("Enter the name of the song: "))
-        genre = input("Enter the genre of the song: ")
+        song_name = str(input("Enter the name of the song:\n"))
+        genre = input("Enter the genre of the song:\n")
         
-        if genre not in songs_normalize:
+        if genre not in genre_song_dict.keys():
             print(f"'{genre}' does not exist in the dictionary.")
-            new_genre = input("Enter the genre you would like to add (case sensitive): ")
-            songs_normalize[new_genre] = [song_name]
+            new_genre = input("Enter the genre you would like to add (case sensitive):\n")
+            genre_song_dict[new_genre] = [song_name]
             print(f"'{song_name}' added to '{new_genre}'.")
             
         else:
             print(f"The genre '{genre}' exists.")
-            add_to_existing_genre = input(f"Do you want to add '{song_name}' to '{genre}'? (yes/no): ").lower()
+            add_to_existing_genre = input(f"Do you want to add '{song_name}' to '{genre}'? (yes/no):\n").lower()
             if add_to_existing_genre == 'yes':
-                song_normalize[genre].append(song_name)
+                genre_song_dict[genre].append(song_name)
                 print(f"Song '{song_name}' added to genre '{genre}'.")
             else:
                 print("Okay, not adding the song.")
@@ -131,26 +130,25 @@ def add_to_dictionary(songs_normalize):
 
 def main(): #Judah's function
 
-    d = dataset_filtered()
-
+    d, genre_set = dataset_filtered()
+    print(d)
     while True:
 
-        print(d)
-
-        user_input = input('\nWould you like to search for songs based off genre, based off a song, add to our list of songs, or quit the program? (genre/song/add/quit)\n')
+        user_input = input('\nWould you like to search for songs based off genre, based off a song, add to our list of songs, see our song list, or quit the program? (genre/song/add/list/quit)\n')
 
         if user_input == 'genre':
-            songs_csv = r'songs_normalize.csv'
-            genre_song_dict, genre_set = load_songs(songs_csv)
-            genre_input = prompt_user_for_genre(genre_set)
-            print_songs_for_genre(genre_song_dict, genre_input)
+            genre_input = prompt_user_for_genre(d)
+            print_songs_for_genre(d, genre_input)
         
         elif user_input == 'song':
-            user_song = 'what song would you like to find similar songs for?'
-            print_songs_for_genre(genre_song_dict, genre_input)
+            user_song = input('What song would you like to find similar songs for?\n')
+            print_songs_from_user_inputted_song(user_song, d)
             
         elif user_input == 'add':
-            add_to_dictionary()
+            add_to_dictionary(d)
+
+        elif user_input == "list":
+            print(d)
 
         elif user_input == 'quit':
             print("Thank you for using our program :D")

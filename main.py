@@ -71,10 +71,10 @@ def prompt_user_for_genre(genre_set):
 
 def print_songs_for_genre(genre_song_dict, genre_input):
     """
-    Prints the songs belonging to a specific genre from a given dictionary.
+    Prints the songs belonging to a specific genre from dictionary.
 
     Args:
-    genre_song_dict (dict): A dictionary mapping genres to lists of songs.
+    genre_song_dict (dict): The dictionary mapping genres to lists of songs.
     genre_input (str): The genre for which to print songs.
     """
     if genre_input in genre_song_dict:

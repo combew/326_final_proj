@@ -56,11 +56,27 @@ def dataset_filtered():
 
 """Nathan"""
 def prompt_user_for_genre(genre_set):
+    """
+    Prompts the user to enter a genre from a given set of genres.
+
+    Args:
+    genre_set (set): A set containing available genres in dictionary.
+
+    Returns:
+    genre_input (str): The genre entered by the user.
+    """
     print(f"Available genres: {', '.join(sorted(genre_set))}")
     genre_input = input("Enter a genre to print songs from: ")
     return genre_input
 
 def print_songs_for_genre(genre_song_dict, genre_input):
+    """
+    Prints the songs belonging to a specific genre from a given dictionary.
+
+    Args:
+    genre_song_dict (dict): A dictionary mapping genres to lists of songs.
+    genre_input (str): The genre for which to print songs.
+    """
     if genre_input in genre_song_dict:
         print(f"Here are {genre_input} songs!\n{genre_song_dict[genre_input]}")
     else:

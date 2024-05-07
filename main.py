@@ -55,13 +55,13 @@ def dataset_filtered():
 
 
 """Nathan"""
-def prompt_user_for_genre(genre_song_dict):
-    print(f"Available genres: {', '.join(sorted(genre_song_dict.keys()))}")
+def prompt_user_for_genre(genre_set):
+    print(f"Available genres: {', '.join(sorted(genre_set))}")
     genre_input = input("Enter a genre to print songs from: ")
     return genre_input
 
 def print_songs_for_genre(genre_song_dict, genre_input):
-    if genre_input in genre_song_dict.keys():
+    if genre_input in genre_song_dict:
         print(f"Here are {genre_input} songs!\n{genre_song_dict[genre_input]}")
     else:
         print("Genre not found. Please try again with a valid genre from the list.")

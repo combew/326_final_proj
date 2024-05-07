@@ -56,11 +56,30 @@ def dataset_filtered():
 
 """Nathan"""
 def prompt_user_for_genre(genre_song_dict):
+    '''
+    Prompts user for a genre to pick songs from
+
+    Args:
+    - genre_song_dict (dict): a dictionary of songs sorted by genre
+
+    Return:
+    - genre_input (str): a user inputted str
+    '''
     print(f"Available genres: {', '.join(sorted(genre_song_dict.keys()))}")
     genre_input = input("Enter a genre to print songs from: ")
     return genre_input
 
 def print_songs_for_genre(genre_song_dict, genre_input):
+    '''
+    Prints songs from a genre
+
+    Args:
+    - genre_song_dict (dict): a dictionary of songs sorted by genre
+    - genre_input (str): a user inputted str
+
+    Return:
+    - none
+    '''
     if genre_input in genre_song_dict:
         print(f"Here are {genre_input} songs!\n{genre_song_dict[genre_input]}")
     else:
@@ -92,13 +111,17 @@ def print_songs_from_user_inputted_song(song_name, genre_song_dict):
                 print(f"- {song}")
     else:
         print("Song not recognized. Please try another song.")
-'''
-(Jason) user can then ask the program to list songs based on an inputted genre
-allow user to filter songs by inputted year, output will change accordingly
-'''
 
 def add_to_dictionary(genre_song_dict):
-    
+    '''
+    Allows users to add elements to our dictionary
+
+    Args:
+    - genre_song_dict (dict): a dictionary of songs sorted by genre
+
+    Returns:
+    - 0 (int): only in certain circumstances
+    '''
     song_add = input("Would you like to add a song? yes/no\n").lower()
     if song_add == "no":
         print("The function will now exit.")
@@ -129,7 +152,15 @@ def add_to_dictionary(genre_song_dict):
 
 
 def main():
+    '''
+    Calls a specific function based off user inputs, only stops looping when the user decides to quit
 
+    Args:
+    - None
+
+    Returns:
+    - none, only prints
+    '''
     d, genre_set = dataset_filtered()
     print(d)
     while True:

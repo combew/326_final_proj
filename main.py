@@ -1,9 +1,7 @@
-"""A template for a python script deliverable for INST326.
+"""Python script deliverable for INST326.
 
 Drivers: Jason De Azevedo, Nathan Bogin, Judah Kamadinata, Omar Humeida
 Assignment: Final Project
-Date: 4_1_24
-
 """
 
 import sys
@@ -53,8 +51,6 @@ def dataset_filtered():
 
     return genre_song_dict, genre_set
 
-
-"""Nathan"""
 def prompt_user_for_genre(genre_song_dict):
     '''
     Prompts user for a genre to pick songs from
@@ -84,8 +80,6 @@ def print_songs_for_genre(genre_song_dict, genre_input):
         print(f"Here are {genre_input} songs!\n{genre_song_dict[genre_input]}")
     else:
         print("Genre not found. Please try again with a valid genre from the list.")
-
-
 
 def print_songs_from_user_inputted_song(song_name, genre_song_dict):
     """
@@ -148,8 +142,6 @@ def add_to_dictionary(genre_song_dict):
     
     else:
         print("Invalid input. Please enter 'yes' or 'no'.")
-        
-
 
 def main():
     '''

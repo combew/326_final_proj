@@ -8,6 +8,8 @@ import sys
 import argparse
 import csv
 import pandas as pd 
+import unittest 
+from unittest.mock import patch
 
 def dataset_filtered():
     '''
@@ -181,4 +183,31 @@ def main():
             'please input a valid option'
 
 if __name__ == "__main__":
-    main()
+    class TestFunctions(unittest.TestCase):
+
+        def setUp(self):
+            self.genre_song_dict = {
+                'Rock': ['Song1', 'Song2', 'Song3'],
+                'Pop': ['Song4', 'Song5']
+            }
+
+        @patch('builtins.input', return_value='Rock')
+        def test_prompt_user_for_genre(self, mocked_input):
+            genre_input = prompt_user_for_genre(self.genre_song_dict)
+            self.assertEqual(genre_input, 'Rock')
+
+        @patch('builtins.print')
+        def test_print_songs_for_genre_valid(self, mocked_print):
+            print_songs_for_genre(self.genre_song_dict, 'Rock')
+            mocked_print.assert_called_with("Here are Rock songs!\n['Song1', 'Song2', 'Song3']")
+
+        @patch('builtins.print')
+        def test_print_songs_for_genre_invalid(self, mocked_print):
+            print_songs_for_genre(self.genre_song_dict, 'Unknown')
+            mocked_print.assert_called_with("Genre not found. Please try again with a valid genre from the list.")
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == '--test':
+        unittest.main(argv=[''], exit=False)
+    else:
+        main()
